@@ -1,9 +1,12 @@
+@use "sass:color";
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #e7f6ff;
 }
+
 * {
   font-family: "Inter", system-ui;
 }
@@ -22,6 +25,7 @@ header {
   img {
     margin-right: 15px;
   }
+
   h3,
   p {
     margin: 0;
@@ -32,12 +36,14 @@ header {
   h1 {
     margin: 0;
   }
+
   .content-title {
     margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   .sneakers {
     display: flex;
     flex-wrap: wrap;
@@ -57,6 +63,7 @@ header {
     font-size: 16px;
     width: 200px;
   }
+
   .inputRemove {
     position: absolute;
     right: 7px;
@@ -85,6 +92,7 @@ header {
 .overlayVisible {
   visibility: visible;
   opacity: 1;
+
   .drawer {
     transform: translateX(0);
   }
@@ -102,19 +110,23 @@ header {
   padding: 30px;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
+
   .items {
     overflow: auto;
     margin-right: 40px;
   }
+
   .greenButton {
     &:disabled {
       animation: button-loading 0.8s ease-in-out infinite;
     }
   }
+
   .items {
     flex: 1;
     margin-right: 0;
   }
+
   h2 {
     display: flex;
     justify-content: space-between;
@@ -135,7 +147,7 @@ header {
       height: 70px;
       width: 70px;
       background-size: contain;
-      background-position: 0 px;
+      background-position: 0px;
       background-repeat: no-repeat;
       margin-right: 20px;
     }
@@ -143,6 +155,7 @@ header {
     .sneakerImg {
       margin-right: 20px;
     }
+
     .removeBtn {
       opacity: 0.5;
       cursor: pointer;
@@ -158,6 +171,7 @@ header {
       font-size: 16px;
       margin-bottom: 5px;
     }
+
     b {
       font-size: 14px;
     }
@@ -175,10 +189,11 @@ header {
   justify-content: center;
   flex-direction: column;
   flex: 1;
-  
+
   h2 {
     margin-bottom: 0;
   }
+
   p {
     margin-bottom: 40px;
     text-align: center;
@@ -196,6 +211,7 @@ header {
       align-items: flex-end;
       margin-bottom: 20px;
     }
+
     div {
       flex: 1;
       height: 1px;
@@ -208,6 +224,7 @@ header {
 
 
 }
+
 .greenButton {
   width: 100%;
   height: 55px;
@@ -231,6 +248,7 @@ header {
       transform: translateX(5px);
     }
   }
+
   img {
     position: absolute;
     right: 30px;
@@ -239,10 +257,11 @@ header {
   }
 
   &:hover {
-    background: lighten($color: #9dd558, $amount: 5%);
+    background: color.scale(#9dd558, $lightness: 5%);;
   }
+
   &:active {
-    background: darken($color: #9dd558, $amount: 5);
+    background: color.scale(#9dd558, $lightness: -5%);
   }
 }
 
@@ -258,11 +277,13 @@ header {
   cursor: pointer;
   transition: backgraund 0.1s ease-in-out;
   position: relative;
+
   &:hover {
     img {
       transform: translateX(-5px) rotate(180deg);
     }
   }
+
   img {
     position: absolute;
     left: 30px;
@@ -272,10 +293,11 @@ header {
   }
 
   &:hover {
-    background: lighten($color: #9dd558, $amount: 5%);
+    background: color.scale(#9dd558, $lightness: 5%);;
   }
+
   &:active {
-    background: darken($color: #9dd558, $amount: 5);
+    background: color.scale(#9dd558, $lightness: -5%);
   }
 }
 
