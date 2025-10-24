@@ -1,0 +1,295 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e7f6ff;
+}
+* {
+  font-family: "Inter", system-ui;
+}
+
+.wrapper {
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+}
+
+header {
+  border-bottom: 1px solid #eaeaea;
+
+  img {
+    margin-right: 15px;
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+}
+
+.content {
+  h1 {
+    margin: 0;
+  }
+  .content-title {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sneakers {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  display: flex;
+  border-radius: 10px;
+  padding: 0 15px;
+  position: relative;
+
+  input {
+    border: none;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+  .inputRemove {
+    position: absolute;
+    right: 7px;
+    top: 9px;
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+  }
+}
+
+.overlay {
+  top: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.overlayVisible {
+  visibility: visible;
+  opacity: 1;
+  .drawer {
+    transform: translateX(0);
+  }
+}
+
+.drawer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  .items {
+    overflow: auto;
+    margin-right: 40px;
+  }
+  .greenButton {
+    &:disabled {
+      animation: button-loading 0.8s ease-in-out infinite;
+    }
+  }
+  .items {
+    flex: 1;
+    margin-right: 0;
+  }
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  .cartItem {
+    border: 1px solid #f3f3f3;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .cartItemImg {
+      height: 70px;
+      width: 70px;
+      background-size: contain;
+      background-position: 0 px;
+      background-repeat: no-repeat;
+      margin-right: 20px;
+    }
+
+    .sneakerImg {
+      margin-right: 20px;
+    }
+    .removeBtn {
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.15s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    b {
+      font-size: 14px;
+    }
+
+    div {
+      margin-right: 20px;
+    }
+  }
+}
+
+.cartEmpty {
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+}
+
+.cartTotalBlock {
+  ul {
+    display: block;
+    margin-bottom: 20px !important;
+
+    li {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+    div {
+      flex: 1;
+      height: 1px;
+      border-bottom: 1px dashed #dfdfdf;
+      position: relative;
+      top: -4px;
+      margin: 0 7px;
+    }
+  }
+
+
+}
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: backgraund 0.1s ease-in-out;
+  position: relative;
+
+  &:disabled {
+    background-color: #bebebe;
+    cursor: default !important;
+  }
+
+  &:hover {
+    img {
+      transform: translateX(5px);
+    }
+  }
+  img {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
+  &:active {
+    background: darken($color: #9dd558, $amount: 5);
+  }
+}
+
+.backGreenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: backgraund 0.1s ease-in-out;
+  position: relative;
+  &:hover {
+    img {
+      transform: translateX(-5px) rotate(180deg);
+    }
+  }
+  img {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
+  &:active {
+    background: darken($color: #9dd558, $amount: 5);
+  }
+}
+
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
