@@ -19,7 +19,7 @@ export default function Drawer({ onRemove, onCloseCart, items = [], opened }) {
   const { cartItems, setCartItems } = React.useContext(AppContext);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0)
+  const totalPrice = cartItems?.reduce((sum, obj) => obj.price + sum, 0)
 
   const onClickOrder = async () => {
     try {
